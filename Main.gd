@@ -121,3 +121,23 @@ func _on_X_pressed() -> void:
 
 func _on_Timer_X_timeout() -> void:
 	get_tree().quit()
+
+
+func _on_Button_mouse_entered() -> void:
+	hint_tooltip = "Network connection"
+
+
+func _on_ButtonAU_mouse_entered() -> void:
+	hint_tooltip = "Volume"
+
+
+func _on_ButtonHW_mouse_entered() -> void:
+	hint_tooltip = "Eject device"
+
+
+func _on_ButtonSEC_mouse_entered() -> void:
+	hint_tooltip = "Unresolved actions require your attention!"
+
+
+func _on_timeLBL_mouse_entered() -> void:
+	hint_tooltip = "Time"

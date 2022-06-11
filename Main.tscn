@@ -20,7 +20,7 @@
 [ext_resource path="res://data/media/gui/bsod.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=2]
-size = 15
+size = 12
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 10 )
@@ -56,6 +56,7 @@ animations = [ {
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 
@@ -75,6 +76,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -45.0
 margin_right = 133.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 4 )
@@ -90,6 +92,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1025.0
 margin_top = -45.0
+mouse_filter = 1
 theme = ExtResource( 2 )
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 8 )
@@ -104,8 +107,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -113.0
-margin_top = -50.0
+margin_left = -107.0
+margin_top = -43.0
+hint_tooltip = "Time"
+mouse_filter = 1
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 2 )
 align = 1
@@ -120,15 +125,42 @@ position = Vector2( 1037, 843 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 
+[node name="ButtonAU" type="Button" parent="buttons/TextureButton/system_tray/Audio"]
+margin_left = -24.0
+margin_top = -30.0
+margin_right = 20.0
+margin_bottom = 24.0
+hint_tooltip = "Volume"
+mouse_filter = 1
+flat = true
+
 [node name="HardwareRm" type="Sprite" parent="buttons/TextureButton/system_tray"]
 position = Vector2( 987, 841 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 12 )
 
+[node name="ButtonHW" type="Button" parent="buttons/TextureButton/system_tray/HardwareRm"]
+margin_left = -45.0
+margin_top = -65.0
+margin_right = 50.0
+margin_bottom = 50.0
+hint_tooltip = "Eject device"
+mouse_filter = 1
+flat = true
+
 [node name="Security" type="Sprite" parent="buttons/TextureButton/system_tray"]
 position = Vector2( 1009, 840 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
+
+[node name="ButtonSEC" type="Button" parent="buttons/TextureButton/system_tray/Security"]
+margin_left = -20.0
+margin_top = -26.0
+margin_right = 20.0
+margin_bottom = 30.0
+hint_tooltip = "Unresolved actions require your attention!"
+mouse_filter = 1
+flat = true
 
 [node name="Connection2" type="AnimatedSprite" parent="buttons/TextureButton/system_tray"]
 position = Vector2( 961, 841 )
@@ -137,6 +169,15 @@ frames = SubResource( 3 )
 animation = "blinking"
 frame = 1
 playing = true
+
+[node name="Button" type="Button" parent="buttons/TextureButton/system_tray/Connection2"]
+margin_left = -26.0
+margin_top = -26.0
+margin_right = 20.0
+margin_bottom = 34.0
+hint_tooltip = "Network connection"
+mouse_filter = 1
+flat = true
 
 [node name="desktop_icons" type="Node" parent="buttons/TextureButton"]
 
@@ -167,7 +208,6 @@ autowrap = true
 [node name="Msgbox" type="Sprite" parent="buttons/TextureButton/desktop_icons"]
 visible = false
 position = Vector2( 579, 416 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 17 )
 
 [node name="OK" type="Button" parent="buttons/TextureButton/desktop_icons/Msgbox"]
@@ -202,10 +242,15 @@ one_shot = true
 frame = 5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 
+[connection signal="mouse_entered" from="buttons/TextureButton/timeLBL" to="." method="_on_timeLBL_mouse_entered"]
+[connection signal="mouse_entered" from="buttons/TextureButton/system_tray/Audio/ButtonAU" to="." method="_on_ButtonAU_mouse_entered"]
+[connection signal="mouse_entered" from="buttons/TextureButton/system_tray/HardwareRm/ButtonHW" to="." method="_on_ButtonHW_mouse_entered"]
+[connection signal="mouse_entered" from="buttons/TextureButton/system_tray/Security/ButtonSEC" to="." method="_on_ButtonSEC_mouse_entered"]
+[connection signal="mouse_entered" from="buttons/TextureButton/system_tray/Connection2/Button" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="buttons/TextureButton/desktop_icons/TextfileIcon/Button" to="." method="_on_Button_pressed" flags=7]
 [connection signal="pressed" from="buttons/TextureButton/desktop_icons/Msgbox/OK" to="." method="_on_OK_pressed" flags=7]
 [connection signal="pressed" from="buttons/TextureButton/desktop_icons/Msgbox/X" to="." method="_on_X_pressed" flags=7]

@@ -53,11 +53,12 @@ convert_text_resources_to_binary_on_export=true
 
 [global]
 
-force=false
+force=true
 
 [gui]
 
 theme/use_hidpi=true
+timers/tooltip_delay_sec=0.1
 
 [input_devices]
 
