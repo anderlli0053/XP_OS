@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Battery Critical.wav-f76099f1b1e33c1189afb8bd3ecbba40.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Battery Critical.wav"
+dest_files=[ "res://.import/Windows XP Battery Critical.wav-f76099f1b1e33c1189afb8bd3ecbba40.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

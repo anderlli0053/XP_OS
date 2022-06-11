@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Exclamation.wav-e7c3e790c56ea53c1c0dc970b1a550db.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Exclamation.wav"
+dest_files=[ "res://.import/Windows XP Exclamation.wav-e7c3e790c56ea53c1c0dc970b1a550db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

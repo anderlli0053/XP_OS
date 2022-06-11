@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Hardware Insert.wav-6b3e3ce5160fbb4c6684ef5365ef3b2a.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Hardware Insert.wav"
+dest_files=[ "res://.import/Windows XP Hardware Insert.wav-6b3e3ce5160fbb4c6684ef5365ef3b2a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

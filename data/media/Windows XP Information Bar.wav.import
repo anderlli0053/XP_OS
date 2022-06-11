@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Information Bar.wav-d48aa8c0e7a0a29d0a0daa6804d25752.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Information Bar.wav"
+dest_files=[ "res://.import/Windows XP Information Bar.wav-d48aa8c0e7a0a29d0a0daa6804d25752.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

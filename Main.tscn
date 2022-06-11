@@ -1,0 +1,213 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Default.theme" type="Theme" id=2]
+[ext_resource path="res://data/media/wallpapers/Blue hills.jpg" type="Texture" id=3]
+[ext_resource path="res://data/media/gui/start_pressed.png" type="Texture" id=4]
+[ext_resource path="res://data/media/gui/start_hovered.png" type="Texture" id=5]
+[ext_resource path="res://data/media/gui/start_normal.png" type="Texture" id=6]
+[ext_resource path="res://data/media/gui/start_disabled.png" type="Texture" id=7]
+[ext_resource path="res://data/media/gui/xp_taskbar_texture.png" type="Texture" id=8]
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://data/fonts/micross.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://data/media/gui/audio.PNG" type="Texture" id=11]
+[ext_resource path="res://data/media/gui/hardwareRM.PNG" type="Texture" id=12]
+[ext_resource path="res://data/media/gui/connection.PNG" type="Texture" id=13]
+[ext_resource path="res://data/media/gui/security.PNG" type="Texture" id=14]
+[ext_resource path="res://data/media/gui/connection2.PNG" type="Texture" id=15]
+[ext_resource path="res://data/media/gui/textfile_icon.PNG" type="Texture" id=16]
+[ext_resource path="res://data/media/gui/msgbox.png" type="Texture" id=17]
+[ext_resource path="res://data/media/gui/bsod.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="GDScript" id=1]
+script/source = "#/*************************************************************************/#
+#/*  Created by Andrew Poženel, 2022                                      */#
+#/*************************************************************************/#
+
+
+extends Label
+
+var time = OS.get_time(false)
+var hour = time.hour
+var minute = time.minute
+var second = time.second
+var datetime = OS.get_datetime(false)
+
+
+func _process(delta: float) -> void:
+
+	self.set_text(String(time.hour) +\":\"+String(time.minute))
+"
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "blinking",
+"speed": 0.5
+} ]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
+[node name="buttons" type="Node" parent="."]
+
+[node name="START" type="TextureButton" parent="buttons"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -45.0
+margin_right = 133.0
+theme = ExtResource( 2 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="TextureButton" type="TextureButton" parent="buttons"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1025.0
+margin_top = -45.0
+theme = ExtResource( 2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
+expand = true
+flip_h = true
+
+[node name="timeLBL" type="Label" parent="buttons/TextureButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -113.0
+margin_top = -50.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+autowrap = true
+script = SubResource( 1 )
+
+[node name="system_tray" type="Node" parent="buttons/TextureButton"]
+
+[node name="Audio" type="Sprite" parent="buttons/TextureButton/system_tray"]
+position = Vector2( 1037, 843 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="HardwareRm" type="Sprite" parent="buttons/TextureButton/system_tray"]
+position = Vector2( 987, 841 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 12 )
+
+[node name="Security" type="Sprite" parent="buttons/TextureButton/system_tray"]
+position = Vector2( 1009, 840 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+
+[node name="Connection2" type="AnimatedSprite" parent="buttons/TextureButton/system_tray"]
+position = Vector2( 961, 841 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+animation = "blinking"
+frame = 1
+playing = true
+
+[node name="desktop_icons" type="Node" parent="buttons/TextureButton"]
+
+[node name="TextfileIcon" type="Sprite" parent="buttons/TextureButton/desktop_icons"]
+position = Vector2( 757, 716 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+
+[node name="Button" type="Button" parent="buttons/TextureButton/desktop_icons/TextfileIcon"]
+margin_left = -25.0
+margin_top = -30.0
+margin_right = 23.0
+margin_bottom = 30.0
+theme = ExtResource( 2 )
+flat = true
+
+[node name="Label" type="Label" parent="buttons/TextureButton/desktop_icons/TextfileIcon"]
+margin_left = -64.9999
+margin_top = 37.5001
+margin_right = 59.0001
+margin_bottom = 62.5001
+theme = ExtResource( 2 )
+text = "ReadMe.txt"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Msgbox" type="Sprite" parent="buttons/TextureButton/desktop_icons"]
+visible = false
+position = Vector2( 579, 416 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 17 )
+
+[node name="OK" type="Button" parent="buttons/TextureButton/desktop_icons/Msgbox"]
+margin_left = -39.0
+margin_top = 32.0
+margin_right = 39.0
+margin_bottom = 69.0
+theme = ExtResource( 2 )
+flat = true
+
+[node name="X" type="Button" parent="buttons/TextureButton/desktop_icons/Msgbox"]
+margin_left = 125.0
+margin_top = -76.0001
+margin_right = 149.0
+margin_bottom = -39.0001
+theme = ExtResource( 2 )
+flat = true
+
+[node name="Bsod" type="Sprite" parent="buttons/TextureButton/desktop_icons/Msgbox/X"]
+visible = false
+position = Vector2( -129, 91.0001 )
+scale = Vector2( 1.17755, 1.6037 )
+texture = ExtResource( 18 )
+
+[node name="Timer_X" type="Timer" parent="buttons/TextureButton/desktop_icons/Msgbox/X"]
+wait_time = 7.0
+one_shot = true
+
+[node name="cursor" type="Node" parent="buttons"]
+
+[node name="Cursor" parent="buttons/cursor" instance=ExtResource( 9 )]
+frame = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="buttons/TextureButton/desktop_icons/TextfileIcon/Button" to="." method="_on_Button_pressed" flags=7]
+[connection signal="pressed" from="buttons/TextureButton/desktop_icons/Msgbox/OK" to="." method="_on_OK_pressed" flags=7]
+[connection signal="pressed" from="buttons/TextureButton/desktop_icons/Msgbox/X" to="." method="_on_X_pressed" flags=7]
+[connection signal="timeout" from="buttons/TextureButton/desktop_icons/Msgbox/X/Timer_X" to="." method="_on_Timer_X_timeout" flags=7]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout" flags=7]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Ding.wav-c51e4c7ba89b68277eabf15d76cfc947.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Ding.wav"
+dest_files=[ "res://.import/Windows XP Ding.wav-c51e4c7ba89b68277eabf15d76cfc947.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

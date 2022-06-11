@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://data/cursors/cursors.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "#/*************************************************************************/#
+#/*  Created by Andrew Poženel, 2022                                      */#
+#/*************************************************************************/#
+
+
+extends AnimatedSprite
+
+
+
+
+func _ready() -> void:
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+
+
+
+func _process(delta: float) -> void:
+
+	position = get_global_mouse_position()
+
+"
+
+[node name="Cursor" type="AnimatedSprite"]
+frames = ExtResource( 1 )
+animation = "fill_up"
+frame = 17
+playing = true
+script = SubResource( 1 )

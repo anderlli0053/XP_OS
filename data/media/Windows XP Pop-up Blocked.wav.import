@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Windows XP Pop-up Blocked.wav-9f2b5bfa7ff714fd337b4911a2c07441.sample"
+
+[deps]
+
+source_file="res://data/media/Windows XP Pop-up Blocked.wav"
+dest_files=[ "res://.import/Windows XP Pop-up Blocked.wav-9f2b5bfa7ff714fd337b4911a2c07441.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
