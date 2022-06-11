@@ -115,6 +115,7 @@ func _on_OK_pressed() -> void:
 
 func _on_X_pressed() -> void:
 
+	$buttons/TextureButton/desktop_icons/Msgbox/X/AudioStreamPlayer.play()
 	$buttons/TextureButton/desktop_icons/Msgbox/X/Bsod.visible = true
 	$buttons/TextureButton/desktop_icons/Msgbox/X/Timer_X.start(7)
 

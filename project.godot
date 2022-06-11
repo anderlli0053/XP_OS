@@ -51,6 +51,10 @@ window/vsync/use_vsync=false
 search_in_file_extensions=PoolStringArray( "gd", "gdshader", "shader", "tres", "tscn" )
 convert_text_resources_to_binary_on_export=true
 
+[gdnative]
+
+singletons=[  ]
+
 [global]
 
 force=true
