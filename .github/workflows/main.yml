@@ -1,28 +1,4 @@
-name: Build Godot Project
-
-on:
-  push: {}
-  pull_request: {}
-
-jobs:
-  Godot:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        platform: [linux, windows, mac]
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.4.1
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+- name: godot-ci
+  # You may pin to the exact commit or the version.
+  # uses: abarichello/godot-ci@f8fb9f6629906c2f57f0cf4a9051a1a4a20efa1c
+  uses: abarichello/godot-ci@3.4.2
