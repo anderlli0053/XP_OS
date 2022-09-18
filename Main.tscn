@@ -243,7 +243,7 @@ stream = ExtResource( 19 )
 [node name="cursor" type="Node" parent="buttons"]
 
 [node name="Cursor" parent="buttons/cursor" instance=ExtResource( 9 )]
-frame = 6
+frame = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
